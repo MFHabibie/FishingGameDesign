@@ -13,10 +13,48 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\Scripts">
+      <UniqueIdentifier>{5246930f-3dc8-4425-aaaa-1f2fcc93d175}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scripts\Character">
+      <UniqueIdentifier>{36fb78b9-212b-440e-8f75-bc9c190454b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scripts\Controller">
+      <UniqueIdentifier>{4a5757ef-a512-424e-b62c-f8b533d9c4d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scripts\Object">
+      <UniqueIdentifier>{accc937f-51b8-450c-8177-5ec6fa5b8e41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scripts\Utility">
+      <UniqueIdentifier>{9607e0b4-df96-4966-8fef-6a41c8227b98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Scripts">
+      <UniqueIdentifier>{167d8457-40b2-4ace-8426-a3613446a587}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Scripts\Character">
+      <UniqueIdentifier>{522376de-f801-49df-8968-7a9705bec2ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Scripts\Controller">
+      <UniqueIdentifier>{0ce147fd-4eec-40d0-a74c-8337f89168de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Scripts\Object">
+      <UniqueIdentifier>{b479c87e-9842-43a8-93a4-0c49b6dfa619}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Scripts\Utility">
+      <UniqueIdentifier>{c692886e-5347-49ae-b382-4bd339741a51}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FishingDesignGame.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Scripts\Utility\RandomGenerator.cpp">
+      <Filter>Source Files\Scripts\Utility</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="RandomGenerator.h">
+      <Filter>Header Files\Scripts\Utility</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

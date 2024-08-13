@@ -1,2 +1,5 @@
 ﻿  FishingDesignGame.cpp
-  FishingDesignGame.vcxproj -> E:\Stairway-Test\FishingDesignGame\x64\Debug\FishingDesignGame.exe
+  RandomNumber.cpp
+  Generating Code...
+D:\Stairway-Test\FishingGameDesign\FishingDesignGame.cpp(11,10): error C1083: Cannot open include file: 'Scripts/Utility/': No such file or directory
+/RandomNumber.cpp(1,1): error C1083: Cannot open source file: 'RandomNumber.cpp': No such file or directory

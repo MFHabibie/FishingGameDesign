@@ -4,11 +4,13 @@
 #include <iostream>
 #include <map>
 #include <list>
-#include <random>
 #include <thread>
 #include <chrono>
 
-enum FishingType
+//local script
+#include "Scripts/Utility/RandomGenerator.h"
+
+enum FishingPoleType
 {
     SmallPole,
     MediumPole,
@@ -36,18 +38,26 @@ enum FishSize
     Big
 };
 
-FishingType fishingPoleType;
+FishingPoleType fishingPoleType;
 std::map<BaitType, int> baitFishings;
 int totalBaitPurchased = 0;
 
 void FishingPondSituation();
-int RandomRange(int min, int max);
-std::list<int> RandomWithSum(int sum);
 
 void FishingPoleDialogue();
 void FishingSimulation();
 
 int Gold = 100;
+
+//Fish quantity setup
+int smallFishQt;
+int mediumFishQt;
+int bigFishQt;
+int maxFishOnPond;
+
+float redFishPercentage;
+float blueFishPercentage;
+float greenFishPercentage;
 
 int main()
 {
@@ -67,41 +77,23 @@ int main()
 
 void FishingPondSituation()
 {
-    int maxFishOnPond = RandomRange(15, 20);
-    int smallFishQt = RandomRange(0, maxFishOnPond);
-    int mediumFishQt = RandomRange(0, maxFishOnPond - smallFishQt);
-    int bigFishQt = maxFishOnPond - (smallFishQt + mediumFishQt);
+    RandomGenerator randomGenerator;
 
-    int redFishValue = RandomRange(0, 100);
-    int blueFishValue = RandomRange(0, 100 - redFishValue);
+    maxFishOnPond = randomGenerator.RandomRange(15, 20);
+    smallFishQt = randomGenerator.RandomRange(0, maxFishOnPond);
+    mediumFishQt = randomGenerator.RandomRange(0, maxFishOnPond - smallFishQt);
+    bigFishQt = maxFishOnPond - (smallFishQt + mediumFishQt);
+
+    int redFishValue = randomGenerator.RandomRange(0, 100);
+    int blueFishValue = randomGenerator.RandomRange(0, 100 - redFishValue);
     int greenFishValue = 100 - (redFishValue + blueFishValue);
-    float redFishPercentage = redFishValue / 100.f;
-    float blueFishPercentage = blueFishValue / 100.f;
-    float greenFishPercentage = greenFishValue / 100.f;
+    redFishPercentage = redFishValue / 100.f;
+    blueFishPercentage = blueFishValue / 100.f;
+    greenFishPercentage = greenFishValue / 100.f;
     
     std::cout << "Today fish: " << smallFishQt << " small fishes, " << mediumFishQt << " medium fishes, " << bigFishQt << " big fishes.\n";
     std::cout << "With percentage: Red fishes " << redFishValue << "%, Blue fishes " << blueFishValue << "%, Green fishes " << greenFishValue << "%\n";
-}
 
-int RandomRange(int min, int max)
-{
-    // Initialize a random number generator
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::uniform_int_distribution<> distrib(min, max);
-
-    return distrib(gen);
-}
-
-std::list<int> RandomWithSum(int sum)
-{
-    std::list<int> numberList;
-    for (int i = 0; i < sum; i++)
-    {
-        numberList.push_back(RandomRange(0, sum));
-    }
-
-    return numberList;
 }
 
 void FishingPoleDialogue()
@@ -116,7 +108,7 @@ void FishingPoleDialogue()
 
     if (answerNumber <= 3)
     {
-        fishingPoleType = static_cast<FishingType>(answerNumber);
+        fishingPoleType = static_cast<FishingPoleType>(answerNumber);
     }
 
     switch (answerNumber)
@@ -218,6 +210,21 @@ void FishingSimulation()
         std::cout << "Fishing..\n";
         std::this_thread::sleep_for(std::chrono::seconds(1));
         std::cout << "Fishing...\n";
+
+        //FishSize fishSize = ;
+
+        if (fishingPoleType == FishingPoleType::SmallPole)
+        {
+
+        }
+        else if (fishingPoleType == FishingPoleType::MediumPole)
+        {
+
+        }
+        else
+        {
+
+        }
     }
 }
 
