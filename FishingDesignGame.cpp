@@ -3,6 +3,10 @@
 
 #include <iostream>
 #include <map>
+#include <list>
+#include <random>
+#include <thread>
+#include <chrono>
 
 enum FishingType
 {
@@ -34,8 +38,14 @@ enum FishSize
 
 FishingType fishingPoleType;
 std::map<BaitType, int> baitFishings;
+int totalBaitPurchased = 0;
+
+void FishingPondSituation();
+int RandomRange(int min, int max);
+std::list<int> RandomWithSum(int sum);
 
 void FishingPoleDialogue();
+void FishingSimulation();
 
 int Gold = 100;
 
@@ -44,9 +54,54 @@ int main()
     std::cout << "Hello, a good day for fishing!\n";
     std::cout << "Your gold: " << Gold << "\n";
 
+    FishingPondSituation();
+
     FishingPoleDialogue();
 
+    FishingBaitDialogue();
+
+    FishingSimulation();
+
     return 0;
+}
+
+void FishingPondSituation()
+{
+    int maxFishOnPond = RandomRange(15, 20);
+    int smallFishQt = RandomRange(0, maxFishOnPond);
+    int mediumFishQt = RandomRange(0, maxFishOnPond - smallFishQt);
+    int bigFishQt = maxFishOnPond - (smallFishQt + mediumFishQt);
+
+    int redFishValue = RandomRange(0, 100);
+    int blueFishValue = RandomRange(0, 100 - redFishValue);
+    int greenFishValue = 100 - (redFishValue + blueFishValue);
+    float redFishPercentage = redFishValue / 100.f;
+    float blueFishPercentage = blueFishValue / 100.f;
+    float greenFishPercentage = greenFishValue / 100.f;
+    
+    std::cout << "Today fish: " << smallFishQt << " small fishes, " << mediumFishQt << " medium fishes, " << bigFishQt << " big fishes.\n";
+    std::cout << "With percentage: Red fishes " << redFishValue << "%, Blue fishes " << blueFishValue << "%, Green fishes " << greenFishValue << "%\n";
+}
+
+int RandomRange(int min, int max)
+{
+    // Initialize a random number generator
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<> distrib(min, max);
+
+    return distrib(gen);
+}
+
+std::list<int> RandomWithSum(int sum)
+{
+    std::list<int> numberList;
+    for (int i = 0; i < sum; i++)
+    {
+        numberList.push_back(RandomRange(0, sum));
+    }
+
+    return numberList;
 }
 
 void FishingPoleDialogue()
@@ -113,23 +168,20 @@ void FishingBaitDialogue()
         return;
     }
 
+    baitFishings[static_cast<BaitType>(answerBait - 1)] += answerQt;
+    Gold -= answerBait * answerQt;
+
     switch (answerBait)
     {
     case 1:
-        baitFishings[static_cast<BaitType>(answerBait - 1)] += answerQt;
-        Gold -= answerBait * answerQt;
         std::cout << "You have buy " << answerQt << " Red bait\n";
         std::cout << "Your gold: " << Gold << "\n";
         break;
     case 2:
-        baitFishings[static_cast<BaitType>(answerBait - 1)] += answerQt;
-        Gold -= answerBait * answerQt;
         std::cout << "You have buy " << answerQt << " Blue bait\n";
         std::cout << "Your gold: " << Gold << "\n";
         break;
     case 3:
-        baitFishings[static_cast<BaitType>(answerBait - 1)] += answerQt;
-        Gold -= answerBait * answerQt;
         std::cout << "You have buy " << answerQt << " Green bait\n";
         std::cout << "Your gold: " << Gold << "\n";
         break;
@@ -139,6 +191,7 @@ void FishingBaitDialogue()
         break;
     }
 
+    totalBaitPurchased += answerQt;
     int answerBuy = 0;
     while (answerBuy != 1)
     {
@@ -152,6 +205,19 @@ void FishingBaitDialogue()
         {
             break;
         }
+    }
+}
+
+void FishingSimulation()
+{
+    for (int i = 0; i < totalBaitPurchased; i++)
+    {
+        std::system("CLS");
+        std::cout << "Fishing.\n";
+        std::this_thread::sleep_for(std::chrono::seconds(1));
+        std::cout << "Fishing..\n";
+        std::this_thread::sleep_for(std::chrono::seconds(1));
+        std::cout << "Fishing...\n";
     }
 }
 
