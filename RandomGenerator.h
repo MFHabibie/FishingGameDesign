@@ -5,9 +5,6 @@
 
 class RandomGenerator
 {
-	RandomGenerator() { }
-	~RandomGenerator() { }
-
 public:
 	int RandomRange(int min, int max);
 	std::list<int> RandomWithSum(int sum);

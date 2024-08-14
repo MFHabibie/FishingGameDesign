@@ -51,10 +51,37 @@
     <ClCompile Include="Scripts\Utility\RandomGenerator.cpp">
       <Filter>Source Files\Scripts\Utility</Filter>
     </ClCompile>
+    <ClCompile Include="Scripts\Object\Fish.cpp">
+      <Filter>Source Files\Scripts\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Scripts\Character\Player.cpp">
+      <Filter>Source Files\Scripts\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="Scripts\Object\FishingPond.cpp">
+      <Filter>Source Files\Scripts\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Scripts\Controller\GameController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RandomGenerator.h">
       <Filter>Header Files\Scripts\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\Object\Fish.h">
+      <Filter>Header Files\Scripts\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\Utility\EnumData.h">
+      <Filter>Header Files\Scripts\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\Character\Player.h">
+      <Filter>Header Files\Scripts\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\Object\FishingPond.h">
+      <Filter>Header Files\Scripts\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Scripts\Controller\GameController.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
