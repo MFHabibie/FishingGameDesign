@@ -1,6 +1,7 @@
 #pragma once
+#include "../Utility/EnumData.h"
 
-
+class Shop;
 class Player;
 class FishingPond;
 
@@ -9,19 +10,20 @@ class GameController : public IGameController
 public:
 	void Initialize();
 	void Fishing();
+	bool ConfirmFishing();
+	void GameResult();
 
-	Player GetPlayer() { return localPlayer; }
+	Player* GetPlayer() { return localPlayer; }
 
 private:
-	void SetupPlayer(Player activePlayer);
-	void SetupPond(FishingPond _pond);
-
-	Player localPlayer;
-	FishingPond pond;
+	GameState gameState;
+	Shop* shop;
+	Player* localPlayer;
+	FishingPond* pond;
 };
 
 __interface IGameController
 {
-	void Fishing();
+	virtual void Fishing() = 0;
 };
 

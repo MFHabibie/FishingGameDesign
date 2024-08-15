@@ -1,5 +1,5 @@
 #pragma once
-#include "../Utility//EnumData.h"
+#include "../Utility/EnumData.h"
 
 class Fish
 {
@@ -10,37 +10,34 @@ public:
 	int maxPrice;
 };
 
-class RedSmallFish : Fish
+class RedFish : public Fish
 {
 public:
-	RedSmallFish()
+	RedFish()
 	{
 		Color = FishColor::RedFish;
-		Size = FishSize::Small;
 		minPrice = 1;
 		maxPrice = 5;
 	}
 };
 
-class RedMediumFish : Fish
+class BlueFish : public Fish
 {
 public:
-	RedMediumFish()
+	BlueFish()
 	{
-		Color = FishColor::RedFish;
-		Size = FishSize::Medium;
+		Color = FishColor::BlueFish;
 		minPrice = 5;
 		maxPrice = 10;
 	}
 };
 
-class RedBigFish : Fish
+class GreenFish : public Fish
 {
 public:
-	RedBigFish()
+	GreenFish()
 	{
-		Color = FishColor::RedFish;
-		Size = FishSize::Big;
+		Color = FishColor::GreenFish;
 		minPrice = 10;
 		maxPrice = 15;
 	}

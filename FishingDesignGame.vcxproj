@@ -131,7 +131,10 @@
     <ClCompile Include="Scripts\Character\Player.cpp" />
     <ClCompile Include="Scripts\Controller\GameController.cpp" />
     <ClCompile Include="Scripts\Object\Fish.cpp" />
+    <ClCompile Include="Scripts\Object\FishingBait.cpp" />
+    <ClCompile Include="Scripts\Object\FishingPole.cpp" />
     <ClCompile Include="Scripts\Object\FishingPond.cpp" />
+    <ClCompile Include="Scripts\Object\Shop.cpp" />
     <ClCompile Include="Scripts\Utility\RandomGenerator.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -139,7 +142,10 @@
     <ClInclude Include="Scripts\Character\Player.h" />
     <ClInclude Include="Scripts\Controller\GameController.h" />
     <ClInclude Include="Scripts\Object\Fish.h" />
+    <ClInclude Include="Scripts\Object\FishingBait.h" />
+    <ClInclude Include="Scripts\Object\FishingPole.h" />
     <ClInclude Include="Scripts\Object\FishingPond.h" />
+    <ClInclude Include="Scripts\Object\Shop.h" />
     <ClInclude Include="Scripts\Utility\EnumData.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

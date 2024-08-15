@@ -26,37 +26,37 @@ void FishingPond::GeneratePond()
 
     for (int i = 0; i < fishesOnPond; i++)
     {
-        Fish newGeneratedFish;
+        Fish* newGeneratedFish;
 
         //Generate fish color based on sequence by red, blue, green
         if (i < numberRedFish)
         {
-            newGeneratedFish.Color = FishColor::RedFish;
+            newGeneratedFish = new RedFish();
         }
         else if (i >= numberRedFish && i < numberRedFish + numberBlueFish)
         {
-            newGeneratedFish.Color = FishColor::BlueFish;
+            newGeneratedFish->Color = FishColor::BlueFish;
         }
         else
         {
-            newGeneratedFish.Color = FishColor::GreenFish;
+            newGeneratedFish->Color = FishColor::GreenFish;
         }
 
         //Generate fish size based on sequence from small to big
         if (i < smallFishQt)
         {
-            newGeneratedFish.Size = FishSize::Small;
+            newGeneratedFish->Size = FishSize::Small;
         }
         else if (i >= smallFishQt && i < smallFishQt + mediumFishQt)
         {
-            newGeneratedFish.Size = FishSize::Medium;
+            newGeneratedFish->Size = FishSize::Medium;
         }
         else
         {
-            newGeneratedFish.Size = FishSize::Big;
+            newGeneratedFish->Size = FishSize::Big;
         }
 
-        Fishes.push_back(newGeneratedFish);
+        //Fishes.push_back(newGeneratedFish);
     }
 
     std::cout << "\nToday fish: " << smallFishQt << " small fishes, " << mediumFishQt << " medium fishes, " << bigFishQt << " big fishes.\n";
