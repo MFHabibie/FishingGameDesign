@@ -3,6 +3,8 @@
 
 class Player;
 
+using namespace std;
+
 class Shop
 {
 public:

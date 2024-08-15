@@ -27,67 +27,81 @@ void GameController::Fishing()
     FishingBait* bait = localPlayer->GetSelectedBait();
     if (bait)
     {
-        std::cout << "Fishing...\n";
+        cout << "Fishing...\n";
 
-        Fish appearedFish = pond->FishAppear();
-        std::string fishColor = appearedFish.Color == 0 ? "Red" : appearedFish.Color == 1 ? "Blue" : "Green";
-        std::string fishSize = appearedFish.Size == 0 ? "small" : appearedFish.Size == 1 ? "medium" : "big";
+        Fish* appearedFish = pond->FishAppear();
+        string fishColor = appearedFish->GetColor() == 0 ? "Red" : appearedFish->GetColor() == 1 ? "Blue" : "Green";
+        string fishSize = appearedFish->GetSize() == 0 ? "small" : appearedFish->GetSize() == 1 ? "medium" : "big";
 
-        std::cout << fishColor << " " << fishSize << " fish has appeared\n";
-        std::this_thread::sleep_for(std::chrono::seconds(1));
-        if (appearedFish.Color == bait->Type && appearedFish.Size == localPlayer->GetFishPole()->Type)
+        cout << fishColor << " " << fishSize << " fish has appeared\n";
+        this_thread::sleep_for(chrono::seconds(1));
+        if (appearedFish->GetColor() == bait->GetType() && appearedFish->GetSize() == localPlayer->GetFishPole()->GetType())
         {
+            appearedFish->GeneratePrice();
             localPlayer->CatchFish(appearedFish);
-            std::cout << "\nYou have catch " << fishColor << " " << fishSize << " fish\n";
+            pond->FishCatched();
+            cout << "\nYou have catch " << fishColor << " " << fishSize << " fish\n";
 
         }
         else
         {
-            std::cout << "Failed catching.\n";
+            cout << "Failed catching.\n";
         }
 
         Fishing();
     }
-    for (int i = 0; i < localPlayer->FishingBaits.size(); i++)
+    /*for (int i = 0; i < localPlayer->FishingBaits.size(); i++)
     {
         localPlayer->UsedBait = static_cast<BaitType>(i);
         for (int j = 0; j < localPlayer->GetBaitQt(localPlayer->UsedBait); j++)
         {
             system("CLS");
-            std::cout << "Fishing...\n";
+            cout << "Fishing...\n";
 
             Fish appearedFish = pond->FishAppear();
-            std::string fishColor = appearedFish.Color == 0 ? "Red" : appearedFish.Color == 1 ? "Blue" : "Green";
-            std::string fishSize = appearedFish.Size == 0 ? "small" : appearedFish.Size == 1 ? "medium" : "big";
+            string fishColor = appearedFish->Color == 0 ? "Red" : appearedFish->Color == 1 ? "Blue" : "Green";
+            string fishSize = appearedFish->Size == 0 ? "small" : appearedFish->Size == 1 ? "medium" : "big";
 
-            std::cout << fishColor << " " << fishSize << " fish has appeared\n";
-            std::this_thread::sleep_for(std::chrono::seconds(1));
-            if (appearedFish.Color == bait->Type && appearedFish.Size == localPlayer->GetFishPoleType())
+            cout << fishColor << " " << fishSize << " fish has appeared\n";
+            this_thread::sleep_for(chrono::seconds(1));
+            if (appearedFish->Color == bait->Type && appearedFish->Size == localPlayer->GetFishPoleType())
             {
                 localPlayer->CatchFish(appearedFish);
-                std::cout << "\nYou have catch " << fishColor << " " << fishSize << " fish\n";
+                cout << "\nYou have catch " << fishColor << " " << fishSize << " fish\n";
 
             }
             else
             {
-                std::cout << "Failed catching.\n";
+                cout << "Failed catching.\n";
             }
         }
+    }*/
+
+    cout << "\nYou have catch total " << localPlayer->GetTotalFishCatched() << " fishes\n";
+    cout << "Your income from fish: " << localPlayer->GetFishIncome() << "\n";
+    if (localPlayer->GetFishIncome() > 100)
+    {
+        gameState = GameState::Win;
+    }
+    else
+    {
+        gameState = GameState::Lose;
     }
 
-    std::cout << "\nYou have catch total " << localPlayer->GetTotalFishCatched() << " fishes\n";
-    std::this_thread::sleep_for(std::chrono::seconds(1));
-    std::cin.get();
+    GameResult();
+
+    this_thread::sleep_for(chrono::seconds(1));
+    cin.get();
 }
 
 bool GameController::ConfirmFishing()
 {
-    std::cout << "\nHello, a good day for fishing!\n";
-    std::cout << "Your gold: " << localPlayer->GetGold() << "\n";
+    cout << "\nHello, a good day for fishing!\n";
+    cout << "Your gold: " << localPlayer->GetGold() << "\n";
 
     char answer;
-    std::cout << "Would you like to go fishing (y/n)? ";
-    std::cin >> answer;
+    cout << "Would you like to go fishing (y/n)? ";
+    cin >> answer;
     if ((char)tolower(answer) == 'y')
     {
         return true;
@@ -106,14 +120,17 @@ void GameController::GameResult()
     switch (gameState)
     {
     case Win:
+        cout << "Today result is: Win";
         break;
     case Lose:
+        cout << "Today result is: Lose";
         break;
     case Tie:
-        std::cout << "Today result is: Tie";
-        std::this_thread::sleep_for(std::chrono::seconds(2));
+        cout << "Today result is: Tie";
         break;
     default:
         break;
     }
+
+    this_thread::sleep_for(chrono::seconds(2));
 }

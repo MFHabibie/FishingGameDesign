@@ -5,19 +5,28 @@
 void Player::PayFishPole(FishingPole* newPole)
 {
 	fishPole = newPole;
-	UsingGold(fishPole->Price);
+	UsingGold(fishPole->GetPrice());
 }
 
 void Player::PayBaits(FishingBait* bait, int qt)
 {
 	FishingBaits[bait] += qt;
-	UsingGold(qt * bait->Price);
+	UsingGold(qt * bait->GetPrice());
 }
 
 void Player::Fishing()
 {
-	FishingBait* baitAvailable = std::find_if(FishingBaits.begin(), FishingBaits.end(), );
-	baitUsed = UseBait(baitAvailable) ? baitAvailable : nullptr;
+	for (const auto fishingBait : FishingBaits)
+	{
+		FishingBait* activeBait = fishingBait.first;
+		int baitQt = fishingBait.second;
+
+		if (baitQt > 0)
+		{
+			baitUsed = UseBait(activeBait) ? activeBait : nullptr;
+			return;
+		}
+	}
 }
 
 bool Player::UseBait(FishingBait* bait)
@@ -36,7 +45,17 @@ void Player::UsingGold(int needToPay)
 	Gold -= needToPay;
 }
 
-void Player::CatchFish(Fish fish)
+void Player::CatchFish(Fish* fish)
 {
 	catchedFishes.push_back(fish);
+}
+
+int Player::GetFishIncome()
+{
+	int totalIncome;
+	for (Fish * fish : catchedFishes)
+	{
+		totalIncome += fish->GetPrice();
+	}
+	return totalIncome;
 }

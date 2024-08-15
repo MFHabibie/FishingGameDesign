@@ -3,6 +3,8 @@
 
 class Fish;
 
+using namespace std;
+
 class FishingPond
 {
 public:
@@ -11,16 +13,16 @@ public:
 		GeneratePond();
 	}
 
-	Fish FishAppear();
-	void FishCatched(Fish fish);
+	Fish* FishAppear();
+	void FishCatched();
 
-	int GetTotalFish() { return fishesOnPond; }
+	int GetTotalFish() const { return fishesOnPond; }
 
 private:
 	void GeneratePond();
 
-	int fishesOnPond;
-	int fishAppearIdx;
-	std::vector<Fish> Fishes;
+	int fishesOnPond = 0;
+	int fishAppearIdx = 0;
+	std::vector<Fish*> Fishes;
 };
 

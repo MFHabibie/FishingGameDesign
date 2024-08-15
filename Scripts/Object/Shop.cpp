@@ -15,12 +15,12 @@ void Shop::OpenShop(Player* buyer)
 void Shop::FishingPoleDialogue()
 {
     int answerNumber = 0;
-    std::cout << "Choose your Fishing Pole!\n";
-    std::cout << "1. Small Fishing Pole - 5 Gold\n";
-    std::cout << "2. Medium Fishing Pole - 10 Gold\n";
-    std::cout << "3. Big Fishing Pole - 15 Gold\n";
-    std::cout << "Choose your pole: ";
-    std::cin >> answerNumber;
+    cout << "Choose your Fishing Pole!\n";
+    cout << "1. Small Fishing Pole - 5 Gold\n";
+    cout << "2. Medium Fishing Pole - 10 Gold\n";
+    cout << "3. Big Fishing Pole - 15 Gold\n";
+    cout << "Choose your pole: ";
+    cin >> answerNumber;
 
     FishingPole* poleToBuy;
     switch (answerNumber)
@@ -46,50 +46,50 @@ void Shop::FishingBaitDialogue()
 {
     int answerBait = 0;
     int answerQt = 0;
-    std::system("CLS");
-    std::string poleType = player->GetFishPoleType() == 0 ? "Small Pole" : player->GetFishPoleType() == 1 ? "Medium Pole" : "Big Pole";
-    std::cout << "Your Fishing Pole: " << poleType << "\n";
-    std::cout << "Your gold: " << player->GetGold() << "\n";
+    system("CLS");
+    string poleType = player->GetFishPole()->GetType() == 0 ? "Small Pole" : player->GetFishPole()->GetType() == 1 ? "Medium Pole" : "Big Pole";
+    cout << "Your Fishing Pole: " << poleType << "\n";
+    cout << "Your gold: " << player->GetGold() << "\n";
 
-    std::cout << "Choose your Fishing baits!\n";
-    std::cout << "1. Red bait - 1 Gold\n";
-    std::cout << "2. Blue bait - 2 Gold\n";
-    std::cout << "3. Green bait - 3 Gold\n";
-    std::cout << "Choose your bait: ";
-    std::cin >> answerBait;
-    std::cout << "How many: ";
-    std::cin >> answerQt;
+    cout << "Choose your Fishing baits!\n";
+    cout << "1. Red bait - 1 Gold\n";
+    cout << "2. Blue bait - 2 Gold\n";
+    cout << "3. Green bait - 3 Gold\n";
+    cout << "Choose your bait: ";
+    cin >> answerBait;
+    cout << "How many: ";
+    cin >> answerQt;
 
     if (player->GetGold() < answerBait * answerQt)
     {
         if (player->GetGold() <= 0)
         {
-            std::cout << "You don't have any money.";
+            cout << "You don't have any money.";
         }
         else
         {
-            std::cout << "You don't have enough money.";
-            std::this_thread::sleep_for(std::chrono::seconds(1));
+            cout << "You don't have enough money.";
+            this_thread::sleep_for(chrono::seconds(1));
             FishingBaitDialogue();
         }
 
         return;
     }
 
-    FishingBait* fishBait;
+    FishingBait* fishBait = new FishingBait();
     switch (answerBait)
     {
     case 1:
-        fishBait = new RedBait();
-        std::cout << "You have buy " << answerQt << " Red bait\n";
+        fishBait = new RedFishingBait();
+        cout << "You have buy " << answerQt << " Red bait\n";
         break;
     case 2:
-        fishBait = new BlueBait();
-        std::cout << "You have buy " << answerQt << " Blue bait\n";
+        fishBait = new BlueFishingBait();
+        cout << "You have buy " << answerQt << " Blue bait\n";
         break;
     case 3:
-        fishBait = new GreenBait();
-        std::cout << "You have buy " << answerQt << " Green bait\n";
+        fishBait = new GreenFishingBait();
+        cout << "You have buy " << answerQt << " Green bait\n";
         break;
         break;
     default:
@@ -98,13 +98,13 @@ void Shop::FishingBaitDialogue()
     }
 
     player->PayBaits(fishBait, answerQt);
-    std::cout << "Your gold: " << player->GetGold() << "\n";
+    cout << "Your gold: " << player->GetGold() << "\n";
 
     char answerBuy = 'n';
     while ((char)tolower(answerBuy) != 'y')
     {
-        std::cout << "Would you like to buy some more (y/n)?";
-        std::cin >> answerBuy;
+        cout << "Would you like to buy some more (y/n)?";
+        cin >> answerBuy;
         if ((char)tolower(answerBuy) == 'y')
         {
             FishingBaitDialogue();

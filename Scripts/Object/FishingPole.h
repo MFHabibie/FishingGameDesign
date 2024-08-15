@@ -4,8 +4,12 @@
 class FishingPole
 {
 public:
-	FishingPoleType Type;
-	int Price;
+	FishingPoleType GetType() const { return Type; }
+	int GetPrice() const { return Price; }
+
+protected:
+	FishingPoleType Type = FishingPoleType::SmallPole;
+	int Price = 0;
 };
 
 class SmallFishingPole : public FishingPole

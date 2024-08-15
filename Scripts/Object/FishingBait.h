@@ -4,36 +4,40 @@
 class FishingBait
 {
 public:
-	BaitType Type;
-	int Price;
+	BaitType GetType() const { return Type; }
+	int GetPrice() const { return Price; }
+
+protected:
+	BaitType Type = BaitType::RedBait;
+	int Price = 0;
 };
 
-class RedBait : public FishingBait
+class RedFishingBait : public FishingBait
 {
 public:
-	RedBait()
+	RedFishingBait()
 	{
-		Type = Red;
+		Type = BaitType::RedBait;
 		Price = 1;
 	}
 };
 
-class BlueBait : public FishingBait
+class BlueFishingBait : public FishingBait
 {
 public:
-	BlueBait()
+	BlueFishingBait()
 	{
-		Type = Blue;
+		Type = BaitType::BlueBait;
 		Price = 2;
 	}
 };
 
-class GreenBait : public FishingBait
+class GreenFishingBait : public FishingBait
 {
 public:
-	GreenBait()
+	GreenFishingBait()
 	{
-		Type = Green;
+		Type = BaitType::GreenBait;
 		Price = 3;
 	}
 };

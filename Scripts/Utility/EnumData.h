@@ -9,16 +9,16 @@ enum FishingPoleType
 
 enum BaitType
 {
-    Red,
-    Blue,
-    Green
+    RedBait,
+    BlueBait,
+    GreenBait
 };
 
 enum FishColor
 {
-    RedFish,
-    BlueFish,
-    GreenFish
+    Red,
+    Blue,
+    Green
 };
 
 enum FishSize
@@ -30,6 +30,7 @@ enum FishSize
 
 enum GameState
 {
+    Default,
     Win,
     Lose,
     Tie

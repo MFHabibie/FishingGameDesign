@@ -1,18 +1,8 @@
-﻿  FishingDesignGame.cpp
-D:\Stairway-Test\FishingGameDesign\Scripts\Controller\GameController.h(8,31): error C2504: 'IGameController': base class undefined
-D:\Stairway-Test\FishingGameDesign\Scripts\Controller\GameController.h(23,7): error C2079: 'GameController::shop' uses undefined class 'Shop'
-D:\Stairway-Test\FishingGameDesign\Scripts\Controller\GameController.h(25,14): error C2079: 'GameController::pond' uses undefined class 'FishingPond'
+﻿  Player.cpp
   GameController.cpp
-D:\Stairway-Test\FishingGameDesign\Scripts\Controller\GameController.h(8,31): error C2504: 'IGameController': base class undefined
-D:\Stairway-Test\FishingGameDesign\Scripts\Controller\GameController.h(23,7): error C2079: 'GameController::shop' uses undefined class 'Shop'
-D:\Stairway-Test\FishingGameDesign\Scripts\Controller\GameController.h(25,14): error C2079: 'GameController::pond' uses undefined class 'FishingPond'
-D:\Stairway-Test\FishingGameDesign\Scripts\Object\Shop.h(15,9): error C2079: 'Shop::player' uses undefined class 'Player'
-D:\Stairway-Test\FishingGameDesign\Scripts\Character\Player.h(23,55): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-D:\Stairway-Test\FishingGameDesign\Scripts\Controller\GameController.cpp(68,9): error C2440: '=': cannot convert from 'FishingPond' to 'int'
-  Fish.cpp
   Shop.cpp
-D:\Stairway-Test\FishingGameDesign\Scripts\Object\Shop.h(15,9): error C2079: 'Shop::player' uses undefined class 'Player'
-D:\Stairway-Test\FishingGameDesign\Scripts\Character\Player.h(23,55): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-D:\Stairway-Test\FishingGameDesign\Scripts\Object\Shop.cpp(12,14): error C2440: '=': cannot convert from 'Player' to 'int'
-  RandomGenerator.cpp
+D:\Stairway-Test\FishingGameDesign\Scripts\Object\Shop.cpp(83,24): error C2061: syntax error: identifier 'RedBait'
+D:\Stairway-Test\FishingGameDesign\Scripts\Object\Shop.cpp(87,24): error C2061: syntax error: identifier 'BlueBait'
+D:\Stairway-Test\FishingGameDesign\Scripts\Object\Shop.cpp(91,24): error C2061: syntax error: identifier 'GreenBait'
   Generating Code...
+D:\Stairway-Test\FishingGameDesign\Scripts\Character\Player.cpp(58,1): error C4700: uninitialized local variable 'totalIncome' used

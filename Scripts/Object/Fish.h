@@ -4,10 +4,19 @@
 class Fish
 {
 public:
-	FishColor Color;
-	FishSize Size;
-	int minPrice;
-	int maxPrice;
+	virtual void GenerateSize(FishSize size) = 0;
+
+	FishColor GetColor() const { return Color; }
+	FishSize GetSize() const { return Size; }
+	int GetPrice() const { return price; }
+	int GeneratePrice();
+
+protected:
+	FishColor Color = FishColor::Red;
+	FishSize Size = FishSize::Small;
+	int minPrice = 0;
+	int maxPrice = 0;
+	int price = 0;
 };
 
 class RedFish : public Fish
@@ -15,10 +24,10 @@ class RedFish : public Fish
 public:
 	RedFish()
 	{
-		Color = FishColor::RedFish;
-		minPrice = 1;
-		maxPrice = 5;
+		Color = FishColor::Red;
 	}
+
+	void GenerateSize(FishSize size) override;
 };
 
 class BlueFish : public Fish
@@ -26,10 +35,10 @@ class BlueFish : public Fish
 public:
 	BlueFish()
 	{
-		Color = FishColor::BlueFish;
-		minPrice = 5;
-		maxPrice = 10;
+		Color = FishColor::Blue;
 	}
+
+	void GenerateSize(FishSize size) override;
 };
 
 class GreenFish : public Fish
@@ -37,8 +46,8 @@ class GreenFish : public Fish
 public:
 	GreenFish()
 	{
-		Color = FishColor::GreenFish;
-		minPrice = 10;
-		maxPrice = 15;
+		Color = FishColor::Green;
 	}
+
+	void GenerateSize(FishSize size) override;
 };

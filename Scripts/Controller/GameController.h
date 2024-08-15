@@ -5,7 +5,9 @@ class Shop;
 class Player;
 class FishingPond;
 
-class GameController : public IGameController
+using namespace std;
+
+class GameController
 {
 public:
 	void Initialize();
@@ -13,17 +15,12 @@ public:
 	bool ConfirmFishing();
 	void GameResult();
 
-	Player* GetPlayer() { return localPlayer; }
+	Player* GetPlayer() const { return localPlayer; }
 
 private:
-	GameState gameState;
+	GameState gameState = GameState::Default;
 	Shop* shop;
 	Player* localPlayer;
 	FishingPond* pond;
-};
-
-__interface IGameController
-{
-	virtual void Fishing() = 0;
 };
 

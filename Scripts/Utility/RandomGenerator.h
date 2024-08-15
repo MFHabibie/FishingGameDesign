@@ -3,10 +3,10 @@
 #include <list>
 #include <random>
 
-class RandomGenerator
+static class RandomGenerator
 {
 public:
-	int RandomRange(int min, int max);
-	std::list<int> RandomWithSum(int sum);
+	static int RandomRange(int min, int max);
+	static std::list<int> RandomWithSum(int sum);
 };
 
