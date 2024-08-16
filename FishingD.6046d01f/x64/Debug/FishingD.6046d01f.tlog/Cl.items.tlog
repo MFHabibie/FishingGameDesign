@@ -1,3 +1,9 @@
 E:\Stairway-Test\FishingDesignGame\FishingDesignGame.cpp;E:\Stairway-Test\FishingDesignGame\FishingD.6046d01f\x64\Debug\FishingDesignGame.obj
+E:\Stairway-Test\FishingDesignGame\Scripts\Character\Player.cpp;E:\Stairway-Test\FishingDesignGame\FishingD.6046d01f\x64\Debug\Player.obj
+E:\Stairway-Test\FishingDesignGame\Scripts\Controller\GameController.cpp;E:\Stairway-Test\FishingDesignGame\FishingD.6046d01f\x64\Debug\GameController.obj
 E:\Stairway-Test\FishingDesignGame\Scripts\Object\Fish.cpp;E:\Stairway-Test\FishingDesignGame\FishingD.6046d01f\x64\Debug\Fish.obj
+E:\Stairway-Test\FishingDesignGame\Scripts\Object\FishingBait.cpp;E:\Stairway-Test\FishingDesignGame\FishingD.6046d01f\x64\Debug\FishingBait.obj
+E:\Stairway-Test\FishingDesignGame\Scripts\Object\FishingPole.cpp;E:\Stairway-Test\FishingDesignGame\FishingD.6046d01f\x64\Debug\FishingPole.obj
+E:\Stairway-Test\FishingDesignGame\Scripts\Object\FishingPond.cpp;E:\Stairway-Test\FishingDesignGame\FishingD.6046d01f\x64\Debug\FishingPond.obj
+E:\Stairway-Test\FishingDesignGame\Scripts\Object\Shop.cpp;E:\Stairway-Test\FishingDesignGame\FishingD.6046d01f\x64\Debug\Shop.obj
 E:\Stairway-Test\FishingDesignGame\Scripts\Utility\RandomGenerator.cpp;E:\Stairway-Test\FishingDesignGame\FishingD.6046d01f\x64\Debug\RandomGenerator.obj

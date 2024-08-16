@@ -1,8 +1,2 @@
-﻿  Player.cpp
-  GameController.cpp
-  Shop.cpp
-D:\Stairway-Test\FishingGameDesign\Scripts\Object\Shop.cpp(83,24): error C2061: syntax error: identifier 'RedBait'
-D:\Stairway-Test\FishingGameDesign\Scripts\Object\Shop.cpp(87,24): error C2061: syntax error: identifier 'BlueBait'
-D:\Stairway-Test\FishingGameDesign\Scripts\Object\Shop.cpp(91,24): error C2061: syntax error: identifier 'GreenBait'
-  Generating Code...
-D:\Stairway-Test\FishingGameDesign\Scripts\Character\Player.cpp(58,1): error C4700: uninitialized local variable 'totalIncome' used
+﻿  GameController.cpp
+  FishingDesignGame.vcxproj -> E:\Stairway-Test\FishingDesignGame\x64\Debug\FishingDesignGame.exe

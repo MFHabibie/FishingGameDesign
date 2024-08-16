@@ -3,7 +3,7 @@
 #include <list>
 #include <random>
 
-static class RandomGenerator
+class RandomGenerator
 {
 public:
 	static int RandomRange(int min, int max);

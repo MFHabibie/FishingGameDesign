@@ -1,6 +1,11 @@
 #include "Fish.h"
 #include "../Utility/RandomGenerator.h"
 
+void Fish::GenerateSize(FishSize size)
+{
+    Size = size;
+}
+
 int Fish::GeneratePrice()
 {
     if (minPrice == 0)
@@ -13,6 +18,7 @@ int Fish::GeneratePrice()
 
 void RedFish::GenerateSize(FishSize size)
 {
+    Fish::GenerateSize(size);
     if (size == FishSize::Small)
     {
         minPrice = 1;
@@ -32,6 +38,7 @@ void RedFish::GenerateSize(FishSize size)
 
 void BlueFish::GenerateSize(FishSize size)
 {
+    Fish::GenerateSize(size);
     if (size == FishSize::Small)
     {
         minPrice = 3;
@@ -51,6 +58,7 @@ void BlueFish::GenerateSize(FishSize size)
 
 void GreenFish::GenerateSize(FishSize size)
 {
+    Fish::GenerateSize(size);
     if (size == FishSize::Small)
     {
         maxPrice = 5;

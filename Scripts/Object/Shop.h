@@ -14,6 +14,6 @@ private:
 	void FishingPoleDialogue();
 	void FishingBaitDialogue();
 
-	Player* player;
+	Player* player = nullptr;
 };
 

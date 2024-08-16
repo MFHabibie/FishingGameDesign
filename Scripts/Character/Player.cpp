@@ -27,6 +27,8 @@ void Player::Fishing()
 			return;
 		}
 	}
+
+	baitUsed = nullptr;
 }
 
 bool Player::UseBait(FishingBait* bait)
@@ -52,7 +54,7 @@ void Player::CatchFish(Fish* fish)
 
 int Player::GetFishIncome()
 {
-	int totalIncome;
+	int totalIncome = 0;
 	for (Fish * fish : catchedFishes)
 	{
 		totalIncome += fish->GetPrice();

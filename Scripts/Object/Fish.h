@@ -4,7 +4,7 @@
 class Fish
 {
 public:
-	virtual void GenerateSize(FishSize size) = 0;
+	virtual void GenerateSize(FishSize size);
 
 	FishColor GetColor() const { return Color; }
 	FishSize GetSize() const { return Size; }
