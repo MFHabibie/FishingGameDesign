@@ -29,7 +29,7 @@ void GameController::Start()
 void GameController::Fishing()
 {
     FishingBait* bait = nullptr;
-    while (bait == nullptr)
+    while (true)
     {
         localPlayer->Fishing();
         bait = localPlayer->GetSelectedBait();
@@ -66,7 +66,6 @@ void GameController::Fishing()
 
         cout.flush();
         this_thread::sleep_for(chrono::milliseconds(500));
-        bait = nullptr;
     }
 
     cout << "\nYou have catch total " << localPlayer->GetTotalFishCatched() << " fishes\n";
