@@ -8,6 +8,13 @@ void FishingPond::GeneratePond()
 {
     fishesOnPond = RandomGenerator::RandomRange(15, 20);
 
+    int smallFishQt = 0;
+    int mediumFishQt = 0;
+    int bigFishQt = 0;
+    int redFishValue = 0;
+    int blueFishValue = 0;
+    int greenFishValue = 0;
+
     for (int i = 0; i < fishesOnPond; i++)
     {
         Fish* newGeneratedFish;
@@ -19,56 +26,35 @@ void FishingPond::GeneratePond()
         if (generateFishColor == 1)
         {
             newGeneratedFish = new RedFish();
+            redFishValue++;
         }
         else if (generateFishColor == 2)
         {
             newGeneratedFish = new BlueFish();
+            blueFishValue++;
         }
         else
         {
             newGeneratedFish = new GreenFish();
+            greenFishValue++;
         }
 
         FishSize fishSize = static_cast<FishSize>(generateFishSize);
         newGeneratedFish->GenerateSize(fishSize);
-
-        Fishes.push_back(newGeneratedFish);
-    }
-
-    int smallFishQt = 0;
-    int mediumFishQt = 0;
-    int bigFishQt = 0;
-    int redFishValue = 0;
-    int blueFishValue = 0;
-    int greenFishValue = 0;
-
-    for (Fish* fish : Fishes)
-    {
-        if (fish->GetColor() == FishColor::Red)
-        {
-            redFishValue++;
-        }
-        else if (fish->GetColor() == FishColor::Blue)
-        {
-            blueFishValue++;
-        }
-        else if (fish->GetColor() == FishColor::Green)
-        {
-            greenFishValue++;
-        }
-
-        if (fish->GetSize() == FishSize::Small)
+        if (fishSize == FishSize::Small)
         {
             smallFishQt++;
         }
-        else if (fish->GetSize() == FishSize::Medium)
+        else if (fishSize == FishSize::Medium)
         {
             mediumFishQt++;
         }
-        else if (fish->GetSize() == FishSize::Big)
+        else if (fishSize == FishSize::Big)
         {
             bigFishQt++;
         }
+
+        Fishes.push_back(newGeneratedFish);
     }
 
     float redFishPercentage = static_cast<float>(redFishValue) / static_cast<float>(fishesOnPond);
