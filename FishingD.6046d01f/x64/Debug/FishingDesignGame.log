@@ -1,11 +1,2 @@
-﻿  FishingDesignGame.cpp
-  Player.cpp
-  GameController.cpp
-  Fish.cpp
-  FishingBait.cpp
-  FishingPole.cpp
-  FishingPond.cpp
-  Shop.cpp
-  RandomGenerator.cpp
-  Generating Code...
+﻿  FishingPond.cpp
   FishingDesignGame.vcxproj -> E:\Stairway-Test\FishingDesignGame\x64\Debug\FishingDesignGame.exe

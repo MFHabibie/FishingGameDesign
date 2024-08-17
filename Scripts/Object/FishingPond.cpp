@@ -6,33 +6,21 @@
 
 void FishingPond::GeneratePond()
 {
-
     fishesOnPond = RandomGenerator::RandomRange(15, 20);
-    int smallFishQt = RandomGenerator::RandomRange(0, fishesOnPond);
-    int mediumFishQt = RandomGenerator::RandomRange(0, fishesOnPond - smallFishQt);
-    int bigFishQt = fishesOnPond - (smallFishQt + mediumFishQt);
-
-    int redFishValue = RandomGenerator::RandomRange(0, 10);
-    int blueFishValue = RandomGenerator::RandomRange(0, 10 - redFishValue);
-    int greenFishValue = 10 - (redFishValue + blueFishValue);
-    float redFishPercentage = redFishValue / 10.f;
-    float blueFishPercentage = blueFishValue / 10.f;
-    float greenFishPercentage = greenFishValue / 10.f;
-
-    int numberRedFish = static_cast<int>(round(redFishPercentage * fishesOnPond));
-    int numberBlueFish = static_cast<int>(round(blueFishPercentage * fishesOnPond));
-    int numberGreenFish = static_cast<int>(round(greenFishPercentage * fishesOnPond));
 
     for (int i = 0; i < fishesOnPond; i++)
     {
         Fish* newGeneratedFish;
 
+        int generateFishColor = RandomGenerator::RandomRange(1, 3);
+        int generateFishSize = RandomGenerator::RandomRange(0, 2);
+
         //Generate fish color based on sequence by red, blue, green
-        if (i < numberRedFish)
+        if (generateFishColor == 1)
         {
             newGeneratedFish = new RedFish();
         }
-        else if (i >= numberRedFish && i < numberRedFish + numberBlueFish)
+        else if (generateFishColor == 2)
         {
             newGeneratedFish = new BlueFish();
         }
@@ -41,25 +29,54 @@ void FishingPond::GeneratePond()
             newGeneratedFish = new GreenFish();
         }
 
-        //Generate fish size based on sequence from small to big
-        if (i < smallFishQt)
-        {
-            newGeneratedFish->GenerateSize(FishSize::Small);
-        }
-        else if (i >= smallFishQt && i < smallFishQt + mediumFishQt)
-        {
-            newGeneratedFish->GenerateSize(FishSize::Medium);
-        }
-        else
-        {
-            newGeneratedFish->GenerateSize(FishSize::Big);
-        }
+        FishSize fishSize = static_cast<FishSize>(generateFishSize);
+        newGeneratedFish->GenerateSize(fishSize);
 
         Fishes.push_back(newGeneratedFish);
     }
 
+    int smallFishQt = 0;
+    int mediumFishQt = 0;
+    int bigFishQt = 0;
+    int redFishValue = 0;
+    int blueFishValue = 0;
+    int greenFishValue = 0;
+
+    for (Fish* fish : Fishes)
+    {
+        if (fish->GetColor() == FishColor::Red)
+        {
+            redFishValue++;
+        }
+        else if (fish->GetColor() == FishColor::Blue)
+        {
+            blueFishValue++;
+        }
+        else if (fish->GetColor() == FishColor::Green)
+        {
+            greenFishValue++;
+        }
+
+        if (fish->GetSize() == FishSize::Small)
+        {
+            smallFishQt++;
+        }
+        else if (fish->GetSize() == FishSize::Medium)
+        {
+            mediumFishQt++;
+        }
+        else if (fish->GetSize() == FishSize::Big)
+        {
+            bigFishQt++;
+        }
+    }
+
+    float redFishPercentage = static_cast<float>(redFishValue) / static_cast<float>(fishesOnPond);
+    float blueFishPercentage = static_cast<float>(blueFishValue) / static_cast<float>(fishesOnPond);
+    float greenFishPercentage = static_cast<float>(greenFishValue) / static_cast<float>(fishesOnPond);
+
     cout << "\nToday fish: " << smallFishQt << " small fishes, " << mediumFishQt << " medium fishes, " << bigFishQt << " big fishes.\n";
-    cout << "With percentage: Red fishes " << redFishValue * 10 << "%, Blue fishes " << blueFishValue * 10 << "%, Green fishes " << greenFishValue * 10 << "%\n\n";
+    cout << "With percentage: Red fishes " << redFishPercentage * 100 << "%, Blue fishes " << blueFishPercentage * 100 << "%, Green fishes " << greenFishPercentage * 100 << "%\n\n";
 }
 
 Fish* FishingPond::FishAppear()
