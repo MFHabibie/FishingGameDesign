@@ -4,7 +4,16 @@
 class FishingBait
 {
 public:
+	/// <summary>
+	/// Get the type of the bait
+	/// </summary>
+	/// <returns>Type of bait based on BaitType enum</returns>
 	BaitType GetType() const { return Type; }
+
+	/// <summary>
+	/// Get the price of the bait
+	/// </summary>
+	/// <returns>Number of bait price</returns>
 	int GetPrice() const { return Price; }
 
 protected:

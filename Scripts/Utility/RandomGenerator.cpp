@@ -9,14 +9,3 @@ int RandomGenerator::RandomRange(int min, int max)
 
     return distrib(gen);
 }
-
-std::list<int> RandomGenerator::RandomWithSum(int sum)
-{
-    std::list<int> numberList;
-    for (int i = 0; i < sum; i++)
-    {
-        numberList.push_back(RandomRange(0, sum));
-    }
-
-    return numberList;
-}

@@ -8,15 +8,24 @@ using namespace std;
 class FishingPond
 {
 public:
+	/// <summary>
+	/// Default constructor
+	/// </summary>
 	FishingPond()
 	{
 		GeneratePond();
 	}
 
+	/// <summary>
+	/// Generate the fish that appear when fishing
+	/// </summary>
+	/// <returns>Fish object to be catched</returns>
 	Fish* FishAppear();
-	void FishCatched();
 
-	int GetTotalFish() const { return fishesOnPond; }
+	/// <summary>
+	/// Remove fish from the pond when catched
+	/// </summary>
+	void FishCatched();
 
 private:
 	void GeneratePond();
