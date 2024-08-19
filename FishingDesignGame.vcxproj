@@ -138,7 +138,6 @@
     <ClCompile Include="Scripts\Utility\RandomGenerator.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="RandomGenerator.h" />
     <ClInclude Include="Scripts\Character\Player.h" />
     <ClInclude Include="Scripts\Controller\GameController.h" />
     <ClInclude Include="Scripts\Object\Fish.h" />
@@ -147,6 +146,7 @@
     <ClInclude Include="Scripts\Object\FishingPond.h" />
     <ClInclude Include="Scripts\Object\Shop.h" />
     <ClInclude Include="Scripts\Utility\EnumData.h" />
+    <ClInclude Include="Scripts\Utility\RandomGenerator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
