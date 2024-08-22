@@ -12,6 +12,6 @@ public:
 	/// <param name="min">: Inclusive number</param>
 	/// <param name="max">: Inclusive number</param>
 	/// <returns>Random number between min and max</returns>
-	int RandomRange(int min, int max);
+	static int RandomRange(int min, int max);
 };
 
